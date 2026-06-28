@@ -1,4 +1,4 @@
-package kafka.model;
+package com.example.project.model;
 import java.util.ArrayList;
 public class Root {
     public Sensor sensor;

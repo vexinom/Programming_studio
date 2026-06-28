@@ -1,4 +1,4 @@
-package kafka.model;
+package com.example.project.model;
 
 public class Location{
     public String latitude;

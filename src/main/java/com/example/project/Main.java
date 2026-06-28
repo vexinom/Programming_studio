@@ -1,37 +1,36 @@
 package com.example.project;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
+
+import com.example.project.service.StatisticsAnalyzer;
+import com.example.project.util.ApiDataLoader;
+import com.example.project.util.DataProvider;
 
 public class Main 
 {
     public static void main( String[] args )
     {
-        Random rand = new Random();
+        System.out.println("Fetching data...");
+
+        DataProvider data_provider = new ApiDataLoader();
+        StatisticsAnalyzer analyzer = new StatisticsAnalyzer(data_provider);
+
+        Map<String, Double> stats = analyzer.calculateStats();
+
+        System.out.println("-----STATS-----");
+        stats.forEach((key, value) -> System.out.println(key + "  " + value));
+        System.out.println("---------------");
+
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Save as");
+        System.out.println("P -> PDF");
+        System.out.println("J -> JSON");
+        System.out.println("X -> XML");
 
-        int n = rand.nextInt(50);
-        int guess = 69;
+        String choice = scanner.nextLine();
 
-        n += 1;
-
-        while(guess != n)
-        {
-            System.out.println( "Provide some number from range 1 to 50: ");
-            guess = scanner.nextInt();
-
-            if(guess < n)
-            {
-                System.out.println( "The number is too small");
-            }
-            else if(guess > n)
-            {
-                System.out.println( "The number is too big");
-            }
-            else
-            {
-                System.out.println( "Congrats, you've gueesed " + n);
-            }
-        }
+        scanner.close();
 
         
     }

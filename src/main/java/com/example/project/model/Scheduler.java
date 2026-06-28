@@ -1,4 +1,4 @@
-package kafka.model;
+package com.example.project.model;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
