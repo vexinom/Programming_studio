@@ -3,9 +3,14 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
+
 import com.example.project.service.StatisticsAnalyzer;
 import com.example.project.util.ApiDataLoader;
 import com.example.project.util.DataProvider;
+
+import com.example.project.export.PdfExporter;
+import com.example.project.export.XmlExporter;
+import com.example.project.export.JsonExporter;
 
 public class Main 
 {
@@ -28,10 +33,30 @@ public class Main
         System.out.println("J -> JSON");
         System.out.println("X -> XML");
 
-        String choice = scanner.nextLine();
+        String choice = scanner.nextLine().toLowerCase();
+
+        switch(choice)
+        {
+            case "p":
+                new PdfExporter().export(stats, "result.pdf");
+                System.out.println("Data were saved to PDF");
+                break;
+
+            case "j":
+                new JsonExporter().export(stats, "result.json");
+                System.out.println("Data were saved to JSON");
+                break;
+
+            case "x":
+                new XmlExporter().export(stats, "result.xml");
+                System.out.println("Data were saved to XML");
+                break;
+
+            default:
+                System.out.println("Invalid option: " + choice);
+        }
 
         scanner.close();
 
-        
     }
 }
