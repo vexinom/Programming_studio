@@ -1,14 +1,14 @@
-# Simple meteorological data analyser
+# Simple Meteorological Data Analyser
 
-Simple program in Java for fetching and analysing data from provided api.
+A simple Java application for fetching and analyzing meteorological data from provided api.
 
-## Funtions
-* **Data fehcing**
+## Features
+* **Data fetching**
 * **Export to 3 data formats via terminal menu**
     * **PDF**
     * **XML**
     * **JSON**
 
 ## Requirements
-* **Java 21** or newer
-* **Maven 3.6** or newer
+* **Java 21** or later
+* **Maven 3.6** or later
